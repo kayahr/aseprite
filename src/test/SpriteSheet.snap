@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpriteSheet fromJSON can parse minimal sprite sheet JSON 1`] = `
+SpriteSheet {
+  "frames": [],
+  "meta": Meta {
+    "app": "test",
+    "format": "I8",
+    "frameTags": [],
+    "image": "image.png",
+    "layers": [],
+    "scale": "1",
+    "size": Size {
+      "height": 2,
+      "width": 1,
+    },
+    "slices": [],
+    "version": "v1",
+  },
+}
+`;

@@ -41,6 +41,7 @@
     "jest": {
         "projects": [
             {
+                "snapshotResolver": "<rootDir>/lib/test/snapshotResolver.js",
                 "setupFilesAfterEnv": [
                     "jest-extended/all"
                 ],
@@ -51,6 +52,7 @@
                 ]
             },
             {
+                "snapshotResolver": "<rootDir>/lib/test/snapshotResolver.js",
                 "setupFilesAfterEnv": [
                     "jest-extended/all"
                 ],
