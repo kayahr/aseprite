@@ -28,10 +28,10 @@ export class Color {
             throw new AsepriteError("Unable to parse color string: " + json);
         }
         return new Color(
-            parseInt(match.groups["red"], 16) / 255,
-            parseInt(match.groups["green"], 16) / 255,
-            parseInt(match.groups["blue"], 16) / 255,
-            parseInt(match.groups["alpha"], 16) / 255
+            parseInt(match.groups["red"] ?? AsepriteError.throw("group 'red' not found"), 16) / 255,
+            parseInt(match.groups["green"] ?? AsepriteError.throw("group 'green' not found"), 16) / 255,
+            parseInt(match.groups["blue"] ?? AsepriteError.throw("group 'blue' not found"), 16) / 255,
+            parseInt(match.groups["alpha"] ?? AsepriteError.throw("group 'alpha' not found"), 16) / 255
         );
     }
 
