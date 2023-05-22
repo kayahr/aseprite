@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json.schemastore.org/package",
+    "name": "@kayahr/aseprite",
+    "version": "0.0.1",
+    "description": "Library to read and play Aseprite JSON Sprite Sheets",
+    "keywords": [
+        "typescript",
+        "aseprite",
+        "sprite",
+        "spritesheet"
+
+    ],
+    "license": "MIT",
+    "repository": "github:kayahr/aseprite",
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": {
+        "name": "Klaus Reimer",
+        "email": "k@ailis.de"
+    },
+    "scripts": {
+        "clean": "rimraf lib coverage doc/api",
+        "apidoc": "typedoc",
+        "build:compile": "tsc",
+        "build": "npm run clean && npm run build:compile",
+        "prepare": "npm run build",
+        "test:lint": "eslint --max-warnings 0 --ext .ts src",
+        "test:spell": "cspell --no-progress",
+        "test:unit": "better-jest",
+        "test:apidoc": "typedoc --emit none",
+        "test": "npm run test:unit && npm run test:lint && npm run test:spell && npm run test:apidoc"
+    },
+    "files": [
+        "lib/main/",
+        "src/main/"
+    ],
+    "funding": {
+        "url": "https://github.com/kayahr/aseprite?sponsor=1"
+    },
+    "jest": {
+        "projects": [
+            {
+                "setupFilesAfterEnv": [
+                    "jest-extended/all"
+                ],
+                "displayName": "node",
+                "testEnvironment": "jest-environment-node-single-context",
+                "testMatch": [
+                    "<rootDir>/lib/test/**/*.test.js"
+                ]
+            },
+            {
+                "setupFilesAfterEnv": [
+                    "jest-extended/all"
+                ],
+                "displayName": "electron",
+                "runner": "@kayahr/jest-electron-runner",
+                "testEnvironment": "@kayahr/jest-electron-runner/environment",
+                "testEnvironmentOptions": {
+                    "electron": {
+                        "options": [
+                            "js-flags=--expose-gc"
+                        ]
+                    }
+                },
+                "testMatch": [
+                    "<rootDir>/lib/test/**/*.test.js"
+                ]
+            }
+        ],
+        "collectCoverageFrom": [
+            "<rootDir>/lib/main/**/*.js"
+        ]
+    },
+    "devDependencies": {
+        "@kayahr/better-jest": "1.1.0",
+        "@kayahr/eslint-config": "2.7.0",
+        "@kayahr/jest-electron-runner": "29.4.0",
+        "@kayahr/jest-matchers": "28.1.0",
+        "@types/jest": "29.5.1",
+        "@types/node": "20.2.3",
+        "@typescript-eslint/eslint-plugin": "5.59.6",
+        "@typescript-eslint/parser": "5.59.6",
+        "cspell": "6.31.1",
+        "eslint": "8.41.0",
+        "eslint-plugin-deprecation": "1.4.1",
+        "eslint-plugin-simple-import-sort": "10.0.0",
+        "jest": "29.5.0",
+        "jest-environment-node-single-context": "29.1.0",
+        "jest-extended": "2.0.0",
+        "rimraf": "5.0.1",
+        "source-map-support": "0.5.21",
+        "typedoc": "0.24.7",
+        "typescript": "5.0.4"
+    },
+    "dependencies": {
+        "tslib": "^2.5.2"
+    }
+}
