@@ -20,7 +20,7 @@
         {
             "label": "Run unit tests",
             "type": "npm",
-            "script": "check",
+            "script": "test:unit",
             "problemMatcher": [],
             "group": {
                 "kind": "test",
