@@ -16,8 +16,8 @@ export interface MetaJSON {
     format: Format;
     size: SizeJSON;
     scale: string;
-    frameTags: FrameTagJSON[];
-    layers: LayerJSON[];
+    frameTags?: FrameTagJSON[];
+    layers?: LayerJSON[];
     slices?: SliceJSON[];
 }
 
@@ -29,8 +29,8 @@ export class Meta {
         private readonly format: Format,
         private readonly size: Size,
         private readonly scale: string,
-        private readonly frameTags: FrameTag[],
-        private readonly layers: Layer[],
+        private readonly frameTags: FrameTag[] = [],
+        private readonly layers: Layer[] = [],
         private readonly slices: Slice[] = []
     ) {}
 
@@ -42,8 +42,8 @@ export class Meta {
             json.format,
             Size.fromJSON(json.size),
             json.scale,
-            json.frameTags.map(FrameTag.fromJSON),
-            json.layers.map(Layer.fromJSON),
+            json.frameTags?.map(FrameTag.fromJSON),
+            json.layers?.map(Layer.fromJSON),
             json.slices?.map(Slice.fromJSON)
         );
     }
