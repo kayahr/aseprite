@@ -3,6 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
+import { AsepriteError } from "./AsepriteError";
 import { Frame, FrameJSON } from "./Frame";
 import { Meta, MetaJSON } from "./Meta";
 
@@ -28,6 +29,10 @@ export class SpriteSheet {
 
     public getFrames(): Frame[] {
         return this.frames.slice();
+    }
+
+    public getFrame(index: number): Frame {
+        return this.frames[index] ?? AsepriteError.throw(`No frame with index ${index} found`);
     }
 
     public getMeta(): Meta {
