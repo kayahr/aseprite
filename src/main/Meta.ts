@@ -3,6 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
+import { AsepriteError } from "./AsepriteError";
 import { Format } from "./Format";
 import { FrameTag, FrameTagJSON } from "./FrameTag";
 import { Layer, LayerJSON } from "./Layer";
@@ -22,6 +23,9 @@ export interface MetaJSON {
 }
 
 export class Meta {
+    private readonly frameTagsMap: Map<string, FrameTag>;
+    private readonly layersMap: Map<string, Layer>;
+
     private constructor(
         private readonly app: string,
         private readonly version: string,
@@ -32,7 +36,10 @@ export class Meta {
         private readonly frameTags: FrameTag[] = [],
         private readonly layers: Layer[] = [],
         private readonly slices: Slice[] = []
-    ) {}
+    ) {
+        this.frameTagsMap = new Map(frameTags.map(frameTag => [ frameTag.getName(), frameTag ]));
+        this.layersMap = new Map(layers.map(layer => [ layer.getName(), layer ]));
+    }
 
     public static fromJSON(json: MetaJSON): Meta {
         return new Meta(
@@ -76,8 +83,16 @@ export class Meta {
         return this.frameTags.slice();
     }
 
+    public getFrameTag(tag: string): FrameTag {
+        return this.frameTagsMap.get(tag) ?? AsepriteError.throw(`Frame tag '${tag}' not found`);
+    }
+
     public getLayers(): Layer[] {
         return this.layers.slice();
+    }
+
+    public getLayer(name: string): Layer {
+        return this.layersMap.get(name) ?? AsepriteError.throw(`Layer '${name}' not found`);
     }
 
     public getSlices(): Slice[] {

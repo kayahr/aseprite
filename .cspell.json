@@ -23,10 +23,14 @@
     "words": [
         "apidoc",
         "Aseprite",
+        "fullname",
+        "innertag",
         "kayahr",
+        "outertag",
         "pingpong",
         "Reimer",
-        "spritesheet"
+        "spritesheet",
+        "tagframe"
     ],
     "language": "en",
     "enableFiletypes": [

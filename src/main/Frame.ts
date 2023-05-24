@@ -3,8 +3,11 @@
  * See LICENSE.md for licensing information.
  */
 
+import { AsepriteError } from "./AsepriteError";
+import { Filename } from "./Filename";
 import { Rectangle, RectangleJSON } from "./Rectangle";
 import { Size, SizeJSON } from "./Size";
+import { SpriteSheetJSONOptions } from "./SpriteSheet";
 
 export interface FrameJSON {
     filename?: string;
@@ -16,9 +19,13 @@ export interface FrameJSON {
     duration: number;
 }
 
+export interface FrameJSONOptions extends SpriteSheetJSONOptions {
+    filename?: string;
+}
+
 export class Frame {
     private constructor(
-        private readonly filename: string,
+        private readonly filename: Filename,
         private readonly frame: Rectangle,
         private readonly rotated: boolean,
         private readonly trimmed: boolean,
@@ -27,9 +34,10 @@ export class Frame {
         private readonly duration: number,
     ) {}
 
-    public static fromJSON(json: FrameJSON, filename: string = ""): Frame {
+    public static fromJSON(json: FrameJSON, options: FrameJSONOptions = {}): Frame {
+        const filename = json.filename ?? options.filename ?? AsepriteError.throw("Frame has no filename");
         return new Frame(
-            json.filename ?? filename,
+            Filename.fromJSON(filename, options),
             Rectangle.fromJSON(json.frame),
             json.rotated,
             json.trimmed,
@@ -39,7 +47,7 @@ export class Frame {
         );
     }
 
-    public getFilename(): string {
+    public getFilename(): Filename {
         return this.filename;
     }
 
@@ -65,5 +73,8 @@ export class Frame {
 
     public getDuration(): number {
         return this.duration;
+    }
+
+    public draw(ctx: CanvasRenderingContext2D): void {
     }
 }
