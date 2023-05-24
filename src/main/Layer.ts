@@ -4,59 +4,31 @@
  */
 
 import { BlendMode } from "./BlendMode";
-import { Color, ColorJSON } from "./Color";
+import { Color } from "./Color";
 
-export interface LayerJSON {
+/**
+ * A sprite layer or layer group. Layer information only makes sense when sprite sheet image is splitted by layer
+ * because otherwise the layers are already flattened.
+ */
+export interface Layer {
+    /** The layer name. */
     name: string;
-    opacity?: number;
-    blendMode?: BlendMode;
-    color?: ColorJSON;
-    data?: string;
+
+    /** Optional parent group. Not present when on root level. */
     group?: string;
-}
 
-export class Layer {
-    private constructor(
-        private readonly name: string,
-        private readonly opacity: number | null = null,
-        private readonly blendMode: BlendMode | null = null,
-        private readonly color: Color | null = null,
-        private readonly data: string | null = null,
-        private readonly group: string | null = null
-    ) {}
+    /** Opacity (0-255) of the layer. Not present when layer is actually a layer group. */
+    opacity?: number;
 
-    public static fromJSON(json: LayerJSON): Layer {
-        return new Layer(
-            json.name,
-            json.opacity,
-            json.blendMode,
-            Color.fromJSON(json.color),
-            json.data,
-            json.group
-        );
-    }
+    /** Blend mode of the layer. Not present when layer is actually a layer group. */
+    blendMode?: BlendMode;
 
-    public getName(): string {
-        return this.name;
-    }
+    /**
+     * Optional color with which the layer is displayed in Aseprite. Only present when color is not
+     * fully transparent.
+     */
+    color?: Color;
 
-    public getOpacity(): number | null {
-        return this.opacity;
-    }
-
-    public getBlendMode(): BlendMode | null {
-        return this.blendMode;
-    }
-
-    public getColor(): Color | null {
-        return this.color;
-    }
-
-    public getData(): string | null {
-        return this.data;
-    }
-
-    public getGroup(): string | null {
-        return this.group;
-    }
+    /** Optional custom data. Only present when string is not empty. */
+    data?: string;
 }

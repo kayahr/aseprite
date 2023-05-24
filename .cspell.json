@@ -10,25 +10,27 @@
     ],
     "ignorePaths": [
         "node_modules",
-        "coverage",
         "doc/api/**",
-        "src/sandbox/**",
         "package-lock.json",
         "git",
         "lib",
         "dist",
         "*.log",
-        "*.tgz"
+        "*.tgz",
+        "*.aseprite",
+        "*.aseprite.json"
     ],
     "words": [
         "apidoc",
         "Aseprite",
+        "Cels",
         "fullname",
         "innertag",
         "kayahr",
         "outertag",
         "pingpong",
         "Reimer",
+        "RGBA",
         "spritesheet",
         "tagframe"
     ],

@@ -3,99 +3,42 @@
  * See LICENSE.md for licensing information.
  */
 
-import { AsepriteError } from "./AsepriteError";
 import { Format } from "./Format";
-import { FrameTag, FrameTagJSON } from "./FrameTag";
-import { Layer, LayerJSON } from "./Layer";
-import { Size, SizeJSON } from "./Size";
-import { Slice, SliceJSON } from "./Slice";
+import { FrameTag } from "./FrameTag";
+import { Layer } from "./Layer";
+import { Size } from "./Size";
+import { Slice } from "./Slice";
 
-export interface MetaJSON {
+/** Sprite sheet meta data. */
+
+export interface Meta {
+    /** The application which produced the sprite sheet (Usually `http://www.aseprite.org/`). */
     app: string;
+
+    /** The version of the application which produced the sprite sheet. */
     version: string;
+
+    /** Relative path to the sprite sheet image file. */
     image: string;
+
+    /** The pixel format of the sprite sheet image file. */
     format: Format;
-    size: SizeJSON;
+
+    /** The pixel size of the sprite sheet image file. */
+    size: Size;
+
+    /**
+     * The scale. Usually always `1`. It is a string instead of a number, most likely to be compatible to whatever
+     * application used this kind of sprite sheet JSON format first (TexturePacker?).
+     */
     scale: string;
-    frameTags?: FrameTagJSON[];
-    layers?: LayerJSON[];
-    slices?: SliceJSON[];
-}
 
-export class Meta {
-    private readonly frameTagsMap: Map<string, FrameTag>;
-    private readonly layersMap: Map<string, Layer>;
+    /** List of tags. Only present when tags export is enabled in Aseprite. */
+    frameTags?: FrameTag[];
 
-    private constructor(
-        private readonly app: string,
-        private readonly version: string,
-        private readonly image: string,
-        private readonly format: Format,
-        private readonly size: Size,
-        private readonly scale: string,
-        private readonly frameTags: FrameTag[] = [],
-        private readonly layers: Layer[] = [],
-        private readonly slices: Slice[] = []
-    ) {
-        this.frameTagsMap = new Map(frameTags.map(frameTag => [ frameTag.getName(), frameTag ]));
-        this.layersMap = new Map(layers.map(layer => [ layer.getName(), layer ]));
-    }
+    /** List of layers. Only present when layers export is enabled in Aseprite. */
+    layers?: Layer[];
 
-    public static fromJSON(json: MetaJSON): Meta {
-        return new Meta(
-            json.app,
-            json.version,
-            json.image,
-            json.format,
-            Size.fromJSON(json.size),
-            json.scale,
-            json.frameTags?.map(FrameTag.fromJSON),
-            json.layers?.map(Layer.fromJSON),
-            json.slices?.map(Slice.fromJSON)
-        );
-    }
-
-    public getApp(): string {
-        return this.app;
-    }
-
-    public getVersion(): string {
-        return this.version;
-    }
-
-    public getImage(): string {
-        return this.image;
-    }
-
-    public getFormat(): Format {
-        return this.format;
-    }
-
-    public getSize(): Size {
-        return this.size;
-    }
-
-    public getScale(): string {
-        return this.scale;
-    }
-
-    public getFrameTags(): FrameTag[] {
-        return this.frameTags.slice();
-    }
-
-    public getFrameTag(tag: string): FrameTag {
-        return this.frameTagsMap.get(tag) ?? AsepriteError.throw(`Frame tag '${tag}' not found`);
-    }
-
-    public getLayers(): Layer[] {
-        return this.layers.slice();
-    }
-
-    public getLayer(name: string): Layer {
-        return this.layersMap.get(name) ?? AsepriteError.throw(`Layer '${name}' not found`);
-    }
-
-    public getSlices(): Slice[] {
-        return this.slices.slice();
-    }
+    /** List of slices. Only present when slices export is enabled in Aseprite. */
+    slices?: Slice[];
 }

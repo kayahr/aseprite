@@ -3,4 +3,5 @@ doc/api/
 lib/
 node_modules/
 sandbox/
+site/
 *.tgz

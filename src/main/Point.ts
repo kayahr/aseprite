@@ -3,31 +3,11 @@
  * See LICENSE.md for licensing information.
  */
 
-export interface PointJSON {
+/** A point with an X and Y coordinate */
+export interface Point {
+    /** The X coordinate. */
     x: number;
+
+    /** The Y coordinate. */
     y: number;
-}
-
-export class Point {
-    private constructor(
-        private readonly x: number,
-        private readonly y: number
-    ) {}
-
-    public static fromJSON(json: PointJSON): Point;
-    public static fromJSON(json?: PointJSON): Point | null;
-    public static fromJSON(json?: PointJSON): Point | null {
-        return json == null ? null : new Point(
-            json.x,
-            json.y
-        );
-    }
-
-    public getX(): number {
-        return this.x;
-    }
-
-    public getY(): number {
-        return this.y;
-    }
 }

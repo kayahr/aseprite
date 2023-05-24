@@ -3,52 +3,19 @@
  * See LICENSE.md for licensing information.
  */
 
-import { AsepriteError } from "./AsepriteError";
-import { FilenameParser } from "./FilenameParser";
-import { Frame, FrameJSON } from "./Frame";
-import { Meta, MetaJSON } from "./Meta";
+import { ArrayFrame } from "./ArrayFrame";
+import { Frame } from "./Frame";
+import { Meta } from "./Meta";
 
-export interface SpriteSheetJSON {
-    frames: FrameJSON[] | Record<string, FrameJSON>;
-    meta: MetaJSON;
-}
+/** Aseprite sprite sheet. This is the root type in an Aseprite JSON file. */
+export interface SpriteSheet {
+    /**
+     * Array or map (depending on export settings) with sprite frame definitions. When exported in Hash format
+     * then the keys of this map are the frame filenames. See {@link ArrayFrame.filename} for important
+     * information regarding the filename format.
+     */
+    frames: Record<string, Frame> | ArrayFrame[];
 
-export interface SpriteSheetJSONOptions {
-    filenameParser?: FilenameParser;
-}
-
-export class SpriteSheet {
-    private constructor(
-        private readonly frames: Frame[][],
-        private readonly meta: Meta
-    ) {}
-
-    public static fromJSON(json: SpriteSheetJSON, options: SpriteSheetJSONOptions = {}): SpriteSheet {
-        const groupedFrames: Frame[][] = [];
-        const frames = json.frames instanceof Array
-                ? json.frames.map(json => Frame.fromJSON(json, options))
-                : Object.entries(json.frames).map(([ filename, json ]) => Frame.fromJSON(json,
-                    { ...options, filename }));
-        for (const frame of frames) {
-            const frameIndex = frame.getFilename().getFrame() ?? groupedFrames.length;
-            (groupedFrames[frameIndex] ??= []).push(frame);
-        }
-        console.log(groupedFrames);
-        return new SpriteSheet(
-            groupedFrames,
-            Meta.fromJSON(json.meta)
-        );
-    }
-
-    public getNumFrames(): number {
-        return this.frames.length;
-    }
-
-    public getFrames(index: number): Frame[] {
-        return this.frames[index]?.slice() ?? AsepriteError.throw(`No frames with index ${index} found`);
-    }
-
-    public getMeta(): Meta {
-        return this.meta;
-    }
+    /** Sprite sheet meta data. */
+    meta: Meta;
 }

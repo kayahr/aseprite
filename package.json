@@ -2,12 +2,15 @@
     "$schema": "http://json.schemastore.org/package",
     "name": "@kayahr/aseprite",
     "version": "0.0.1",
-    "description": "Library to read and play Aseprite JSON Sprite Sheets",
+    "description": "A set of TypeScript interfaces and enums, API documentation, JSON file typings and JSON schema for Aseprite JSON files",
     "keywords": [
         "typescript",
         "aseprite",
+        "json",
+        "schema",
         "sprite",
-        "spritesheet"
+        "spritesheet",
+        "typings"
     ],
     "license": "MIT",
     "repository": "github:kayahr/aseprite",
@@ -22,77 +25,43 @@
         "clean": "rimraf lib coverage doc/api",
         "apidoc": "typedoc",
         "build:compile": "tsc",
-        "build": "npm run clean && npm run build:compile",
+        "build:schema": "ts-json-schema-generator -f tsconfig.json -t SpriteSheet > lib/aseprite.schema.json",
+        "build": "npm run clean && npm run build:compile && npm run build:schema",
         "prepare": "npm run build",
         "test:lint": "eslint --max-warnings 0 --ext .ts src",
         "test:spell": "cspell --no-progress",
-        "test:unit": "better-jest",
+        "test:unit": "jest",
         "test:apidoc": "typedoc --emit none",
-        "test": "npm run test:unit && npm run test:lint && npm run test:spell && npm run test:apidoc"
+        "test": "npm run test:unit && npm run test:lint && npm run test:spell && npm run test:apidoc",
+        "site": "npm run apidoc && rimraf site && copyfiles -V -u 2 'doc/api/**/*' site && copyfiles -V -u 1 lib/aseprite.schema.json site"
     },
     "files": [
         "lib/main/",
-        "src/main/"
+        "src/main/",
+        "src/typings/"
     ],
     "funding": {
         "url": "https://github.com/kayahr/aseprite?sponsor=1"
     },
     "jest": {
-        "projects": [
-            {
-                "snapshotResolver": "<rootDir>/lib/test/snapshotResolver.js",
-                "setupFilesAfterEnv": [
-                    "jest-extended/all"
-                ],
-                "displayName": "node",
-                "testEnvironment": "jest-environment-node-single-context",
-                "testMatch": [
-                    "<rootDir>/lib/test/**/*.test.js"
-                ]
-            },
-            {
-                "snapshotResolver": "<rootDir>/lib/test/snapshotResolver.js",
-                "setupFilesAfterEnv": [
-                    "jest-extended/all"
-                ],
-                "displayName": "electron",
-                "runner": "@kayahr/jest-electron-runner",
-                "testEnvironment": "@kayahr/jest-electron-runner/environment",
-                "testEnvironmentOptions": {
-                    "electron": {
-                        "options": [
-                            "js-flags=--expose-gc"
-                        ]
-                    }
-                },
-                "testMatch": [
-                    "<rootDir>/lib/test/**/*.test.js"
-                ]
-            }
-        ],
-        "collectCoverageFrom": [
-            "<rootDir>/lib/main/**/*.js"
+        "testMatch": [
+            "<rootDir>/lib/test/**/*.test.js"
         ]
     },
     "devDependencies": {
-        "@kayahr/better-jest": "1.1.0",
         "@kayahr/eslint-config": "2.7.0",
-        "@kayahr/jest-electron-runner": "29.4.0",
-        "@kayahr/jest-matchers": "28.1.0",
         "@types/jest": "29.5.1",
         "@types/node": "20.2.3",
         "@typescript-eslint/eslint-plugin": "5.59.6",
         "@typescript-eslint/parser": "5.59.6",
+        "copyfiles": "2.4.1",
         "cspell": "6.31.1",
         "eslint": "8.41.0",
         "eslint-plugin-deprecation": "1.4.1",
         "eslint-plugin-simple-import-sort": "10.0.0",
         "jest": "29.5.0",
-        "jest-environment-node-single-context": "29.1.0",
-        "jest-extended": "2.0.0",
         "rimraf": "5.0.1",
-        "source-map-support": "0.5.21",
-        "steal": "2.3.0",
+        "ts-json-schema-generator": "1.2.0",
         "typedoc": "0.24.7",
         "typescript": "5.0.4"
     },

@@ -3,46 +3,20 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Point, PointJSON } from "./Point";
-import { Rectangle, RectangleJSON } from "./Rectangle";
+import { Point } from "./Point";
+import { Rectangle } from "./Rectangle";
 
-export interface SliceKeyJSON {
+/** A slice key defining the slice rectangle in a specific frame. */
+export interface SliceKey {
+    /** The frame number. */
     frame: number;
-    bounds: RectangleJSON;
-    center?: RectangleJSON;
-    pivot?: PointJSON;
-}
 
-export class SliceKey {
-    private constructor(
-        private readonly frame: number,
-        private readonly bounds: Rectangle,
-        private readonly center: Rectangle | null = null,
-        private readonly pivot: Point | null = null
-    ) {}
+    /** The outer slice bounds within the frame. */
+    bounds: Rectangle;
 
-    public static fromJSON(json: SliceKeyJSON): SliceKey {
-        return new SliceKey(
-            json.frame,
-            Rectangle.fromJSON(json.bounds),
-            Rectangle.fromJSON(json.center),
-            Point.fromJSON(json.pivot)
-        );
-    }
+    /** Optional rectangle within the slice defining the center area of a nine-patch slice. */
+    center?: Rectangle;
 
-    public getFrame(): number {
-        return this.frame;
-    }
-
-    public getBounds(): Rectangle {
-        return this.bounds;
-    }
-
-    public getCenter(): Rectangle | null {
-        return this.center;
-    }
-
-    public getPivot(): Point | null {
-        return this.pivot;
-    }
+    /** Optional pivot point within the slice. */
+    pivot?: Point;
 }
