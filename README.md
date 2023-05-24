@@ -28,7 +28,7 @@ This project provides typings for JSON files with the file pattern `*.aseprite.j
 import spaceship from "../sprites/spaceship.aseprite.json";
 
 const image = spaceship.meta.image;
-const isRGBA = spaceship.meta.format === aseprite.Format.RGBA8888) {
+const isRGBA = spaceship.meta.format === aseprite.Format.RGBA8888;
 ```
 
 JSON schema
