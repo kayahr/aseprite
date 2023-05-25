@@ -38,8 +38,14 @@
     "files": [
         "lib/main/",
         "src/main/",
-        "src/typings/"
+        "lib/aseprite.schema.json"
     ],
+    "main": "lib/main/index.js",
+    "types": "lib/main/index.d.ts",
+    "exports": {
+        ".": "./lib/main/index.js",
+        "./aseprite.schema.json": "./lib/aseprite.schema.json"
+    },
     "funding": {
         "url": "https://github.com/kayahr/aseprite?sponsor=1"
     },

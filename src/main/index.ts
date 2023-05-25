@@ -3,6 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
+import "./aseprite.json";
+
 export * from "./ArrayFrame";
 export * from "./BlendMode";
 export * from "./Color";
