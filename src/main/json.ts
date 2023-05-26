@@ -1,4 +1,4 @@
 declare module "*.aseprite.json" {
-    const value: import("../main/SpriteSheet").SpriteSheet;
+    const value: import("./SpriteSheet").SpriteSheet;
     export default value;
 }
