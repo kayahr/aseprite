@@ -398,7 +398,7 @@
               "type": "array"
             }
           ],
-          "description": "Array or map (depending on export settings) with sprite frame definitions. When exported in Hash format then the keys of this map are the frame filenames. See  {@link  ArrayFrame.filename }  for important information regarding the filename format."
+          "description": "Array or map (depending on export settings) with sprite frame definitions. When exported in Hash format then the keys of this map are the frame filenames. See  {@link  ArrayFrame [\"filename\"] }  for important information regarding the filename format."
         },
         "meta": {
           "$ref": "#/definitions/Meta",
