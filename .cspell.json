@@ -10,6 +10,7 @@
     ],
     "ignorePaths": [
         "node_modules",
+        "coverage",
         "doc/api/**",
         "package-lock.json",
         "site",

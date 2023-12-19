@@ -49,11 +49,6 @@
     "funding": {
         "url": "https://github.com/kayahr/aseprite?sponsor=1"
     },
-    "jest": {
-        "testMatch": [
-            "<rootDir>/lib/test/**/*.test.js"
-        ]
-    },
     "devDependencies": {
         "@kayahr/eslint-config": "2.10.1",
         "@types/jest": "29.5.11",

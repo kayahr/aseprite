@@ -11,7 +11,7 @@ import { Meta } from "./Meta";
 export interface SpriteSheet {
     /**
      * Array or map (depending on export settings) with sprite frame definitions. When exported in Hash format
-     * then the keys of this map are the frame filenames. See {@link ArrayFrame.filename} for important
+     * then the keys of this map are the frame filenames. See {@link ArrayFrame["filename"]} for important
      * information regarding the filename format.
      */
     frames: Record<string, Frame> | ArrayFrame[];
