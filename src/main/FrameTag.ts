@@ -18,4 +18,7 @@ export interface FrameTag {
 
     /** Animation direction. */
     direction: Direction;
+
+    /** Number of times to repeat the animation. `undefined` means loop indefinitely */
+    repeat?: string
 }
