@@ -1,0 +1,13 @@
+apidoc
+Aseprite
+Cels
+copyfiles
+fullname
+innertag
+kayahr
+outertag
+pingpong
+Reimer
+RGBA
+spritesheet
+tagframe

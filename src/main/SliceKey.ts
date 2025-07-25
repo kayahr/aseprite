@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Point } from "./Point";
-import { Rectangle } from "./Rectangle";
+import { type Point } from "./Point.js";
+import { type Rectangle } from "./Rectangle.js";
 
 /** A slice key defining the slice rectangle in a specific frame. */
 export interface SliceKey {

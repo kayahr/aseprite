@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Rectangle } from "./Rectangle";
-import { Size } from "./Size";
+import { type Rectangle } from "./Rectangle.js";
+import { type Size } from "./Size.js";
 
 /**
  * A frame definition within a frames object when selecting Hash format during export in Aseprite. This is the

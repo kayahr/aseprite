@@ -1,4 +1,6 @@
-import { Direction } from "../main/Direction";
+import { describe, expect, it } from "vitest";
+
+import { Direction } from "../main/Direction.js";
 
 describe("Direction", () => {
     it("has 3 values", () => {

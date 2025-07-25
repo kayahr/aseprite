@@ -1,4 +1,6 @@
-import { Format } from "../main/Format";
+import { describe, expect, it } from "vitest";
+
+import { Format } from "../main/Format.js";
 
 describe("Format", () => {
     it("has 2 values", () => {

@@ -1,7 +1,9 @@
-import { BlendMode } from "../main/BlendMode";
-import { Direction } from "../main/Direction";
-import { Format } from "../main/Format";
-import * as aseprite from "../main/index";
+import { describe, expect, it } from "vitest";
+
+import { BlendMode } from "../main/BlendMode.js";
+import { Direction } from "../main/Direction.js";
+import { Format } from "../main/Format.js";
+import * as aseprite from "../main/index.js";
 
 describe("index", () => {
     it("exports all interfaces and enums", () => {

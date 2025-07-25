@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Direction } from "./Direction";
+import { Direction } from "./Direction.js";
 
 /** A tagged frame group which is a way to define a single animation within the sprite sheet. */
 export interface FrameTag {
@@ -20,5 +20,5 @@ export interface FrameTag {
     direction: Direction;
 
     /** Number of times to repeat the animation. `undefined` means loop indefinitely */
-    repeat?: string
+    repeat?: string;
 }

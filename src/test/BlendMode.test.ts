@@ -1,4 +1,6 @@
-import { BlendMode } from "../main/BlendMode";
+import { describe, expect, it } from "vitest";
+
+import { BlendMode } from "../main/BlendMode.js";
 
 describe("BlendMode", () => {
     it("has 12 values", () => {
