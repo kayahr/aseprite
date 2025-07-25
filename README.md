@@ -32,13 +32,14 @@ JSON file typings
 This project provides typings for JSON files with the file pattern `*.aseprite.json`. So when you name your JSON files like this and your module loader supports importing JSON files then you can import the sprite sheets right away and TypeScript already knows the type and can validate your code:
 
 ```typescript
-import spaceship from "../sprites/spaceship.aseprite.json";
+import * as aseprite from "@kayahr/aseprite";
+import spaceship from "../sprites/spaceship.aseprite.json" with { type: "json" };
 
 const image = spaceship.meta.image;
 const isRGBA = spaceship.meta.format === aseprite.Format.RGBA8888;
 ```
 
-Note that you have to import `@kayahr/aseprite` somewhere in your application at least once or otherwise TypeScript doesn't load the typings for `*.aseprite.json` files. If you don't actually need to import an actual type then simply do `import "@kayahr/aseprite"` somewhere in your code or add `node_modules/@kayahr/aseprite/lib/main/aseprite.json.d.ts` to the include list in your `tsconfig.json`.
+Note that you have to import `@kayahr/aseprite` somewhere in your application at least once or otherwise TypeScript doesn't load the typings for `*.aseprite.json` files. If you don't actually need to import an actual type then simply do `import "@kayahr/aseprite"` somewhere in your code or add `node_modules/@kayahr/aseprite/typings/aseprite.json.d.ts` to the include list in your `tsconfig.json`.
 
 JSON schema
 -----------

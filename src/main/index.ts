@@ -10,6 +10,7 @@ export { Direction } from "./Direction.js";
 export { Format } from "./Format.js";
 export type { Frame } from "./Frame.js";
 export type { FrameTag } from "./FrameTag.js";
+export type * from "./json.js";
 export type { Layer } from "./Layer.js";
 export type { Meta } from "./Meta.js";
 export type { Point } from "./Point.js";

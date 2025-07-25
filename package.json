@@ -40,7 +40,7 @@
     "files": [
         "lib/main/",
         "src/main/",
-        "src/typings/",
+        "typings/",
         "lib/aseprite.schema.json"
     ],
     "exports": {
