@@ -32,9 +32,8 @@
         "test:lint": "eslint --max-warnings 0",
         "test:apidoc": "typedoc --emit none",
         "test:spell": "cspell --no-progress --no-summary",
-        "apidoc": "typedoc",
+        "apidoc": "typedoc && copyfiles -V -u 1 lib/aseprite.schema.json lib/apidoc/",
         "install:browser": "playwright install chromium",
-        "site": "npm run apidoc && rimraf site && copyfiles -V -u 2 'doc/api/**/*' site && copyfiles -V -u 1 lib/aseprite.schema.json site",
         "prepare": "run-s install:browser clean build"
     },
     "files": [
