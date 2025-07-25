@@ -1,7 +1,7 @@
 {
     "$schema": "http://json.schemastore.org/package",
     "name": "@kayahr/aseprite",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A set of TypeScript interfaces and enums, API documentation, JSON file typings and JSON schema for Aseprite JSON files",
     "keywords": [
         "typescript",
