@@ -62,7 +62,7 @@
         "playwright": "1.54.1",
         "rimraf": "6.0.1",
         "ts-json-schema-generator": "2.4.0",
-        "typedoc": "0.28.7",
+        "typedoc": "0.28.8",
         "typescript": "5.8.3",
         "vitest": "3.2.4"
     }
