@@ -4,6 +4,7 @@
  */
 
 import { type BlendMode } from "./BlendMode.js";
+import { type Cel } from "./Cel.js";
 import { type Color } from "./Color.js";
 
 /**
@@ -31,4 +32,7 @@ export interface Layer {
 
     /** Optional custom data. Only present when string is not empty. */
     data?: string;
+
+    /** Optional array of Z index overrides. Only present when z indices are set on one or more frames. */
+    cels?: Cel[];
 }
