@@ -4,5 +4,3 @@
  */
 
 import "../../typings/aseprite.json.d.ts";
-
-export {};

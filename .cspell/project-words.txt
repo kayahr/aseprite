@@ -5,7 +5,9 @@ copyfiles
 fullname
 innertag
 kayahr
+ntest
 outertag
+oxlint
 pingpong
 Reimer
 RGBA

@@ -3,11 +3,11 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Format } from "./Format.js";
-import { type FrameTag } from "./FrameTag.js";
-import { type Layer } from "./Layer.js";
-import { type Size } from "./Size.js";
-import { type Slice } from "./Slice.js";
+import type { Format } from "./Format.ts";
+import type { FrameTag } from "./FrameTag.ts";
+import type { Layer } from "./Layer.ts";
+import type { Size } from "./Size.ts";
+import type { Slice } from "./Slice.ts";
 
 /** Sprite sheet meta data. */
 

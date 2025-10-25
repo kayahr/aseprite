@@ -1,18 +1,19 @@
-import { describe, expect, it } from "vitest";
+import { describe, it } from "node:test";
 
-import { Direction } from "../main/Direction.js";
+import { Direction } from "../main/Direction.ts";
+import { assertSame } from "@kayahr/assert";
 
 describe("Direction", () => {
     it("has 3 values", () => {
-        expect(Object.keys(Direction).length).toBe(3);
+        assertSame(Object.keys(Direction).length, 3);
     });
     it("Forward has value 'forward'", () => {
-        expect(Direction.Forward).toBe("forward");
+        assertSame(Direction.Forward, "forward");
     });
     it("Reverse has value 'reverse'", () => {
-        expect(Direction.Reverse).toBe("reverse");
+        assertSame(Direction.Reverse, "reverse");
     });
     it("PingPong has value 'pingpong'", () => {
-        expect(Direction.PingPong).toBe("pingpong");
+        assertSame(Direction.PingPong, "pingpong");
     });
 });

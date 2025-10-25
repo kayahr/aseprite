@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Frame } from "./Frame.js";
+import type { Frame } from "./Frame.ts";
 
 /**
  * A frame definition within a frames array when selecting Array format during export in Aseprite. This is the

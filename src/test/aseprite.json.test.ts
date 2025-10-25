@@ -1,11 +1,12 @@
-import { describe, expect, it } from "vitest";
+import { assertGreaterThan, assertSame } from "@kayahr/assert";
+import { describe, it } from "node:test";
 
 describe("aseprite.json", () => {
     it("provides typings for *.aseprite.json files", async () => {
-        const sprite = (await import("../../src/test/sprites/kayahr.aseprite.json")).default;
-        expect(sprite.frames.length).toBeGreaterThan(0);
-        expect(sprite.meta.frameTags?.[0]?.repeat).toBe(undefined);
-        expect(sprite.meta.frameTags?.[1]?.repeat).toBe("2");
-        expect(sprite.meta.image).toBe("kayahr.png");
+        const sprite = (await import("../../src/test/sprites/kayahr.aseprite.json", { with: { type: "json" }})).default;
+        assertGreaterThan(sprite.frames.length, 0);
+        assertSame(sprite.meta.frameTags?.[0]?.repeat, undefined);
+        assertSame(sprite.meta.frameTags?.[1]?.repeat, "2");
+        assertSame(sprite.meta.image, "kayahr.png");
     });
 });

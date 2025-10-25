@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Direction } from "./Direction.js";
+import type { Direction } from "./Direction.ts";
 
 /** A tagged frame group which is a way to define a single animation within the sprite sheet. */
 export interface FrameTag {

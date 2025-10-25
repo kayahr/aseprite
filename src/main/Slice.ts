@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Color } from "./Color.js";
-import { type SliceKey } from "./SliceKey.js";
+import type { Color } from "./Color.ts";
+import type { SliceKey } from "./SliceKey.ts";
 
 /** A slice within the sprite. */
 export interface Slice {
