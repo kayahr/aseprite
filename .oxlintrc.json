@@ -1,0 +1,17 @@
+{
+    "$schema": "node_modules/oxlint/configuration_schema.json",
+    "extends": [
+        "node_modules/@kayahr/oxlint-config/.oxlintrc.json"
+    ],
+    "ignorePatterns": [ "**/*.d.ts" ],
+    "env": {
+        "node": true
+    },
+    "settings": {
+        "jsdoc": {
+            "tagNamePreference": {
+                "pattern": "pattern"
+            }
+        }
+    }
+}

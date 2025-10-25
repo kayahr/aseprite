@@ -1,66 +1,67 @@
-import { describe, expect, it } from "vitest";
+import { describe, it } from "node:test";
 
-import { BlendMode } from "../main/BlendMode.js";
+import { BlendMode } from "../main/BlendMode.ts";
+import { assertSame } from "@kayahr/assert";
 
 describe("BlendMode", () => {
     it("has 12 values", () => {
-        expect(Object.keys(BlendMode).length).toBe(19);
+        assertSame(Object.keys(BlendMode).length, 19);
     });
     it("Normal has value 'normal'", () => {
-        expect(BlendMode.Normal).toBe("normal");
+        assertSame(BlendMode.Normal, "normal");
     });
     it("Darken has value 'darken'", () => {
-        expect(BlendMode.Darken).toBe("darken");
+        assertSame(BlendMode.Darken, "darken");
     });
     it("Multiply has value 'multiply'", () => {
-        expect(BlendMode.Multiply).toBe("multiply");
+        assertSame(BlendMode.Multiply, "multiply");
     });
     it("ColorBurn has value 'color_burn'", () => {
-        expect(BlendMode.ColorBurn).toBe("color_burn");
+        assertSame(BlendMode.ColorBurn, "color_burn");
     });
     it("Lighten has value 'lighten'", () => {
-        expect(BlendMode.Lighten).toBe("lighten");
+        assertSame(BlendMode.Lighten, "lighten");
     });
     it("Screen has value 'screen'", () => {
-        expect(BlendMode.Screen).toBe("screen");
+        assertSame(BlendMode.Screen, "screen");
     });
     it("ColorDodge has value 'color_dodge'", () => {
-        expect(BlendMode.ColorDodge).toBe("color_dodge");
+        assertSame(BlendMode.ColorDodge, "color_dodge");
     });
     it("Addition has value 'addition'", () => {
-        expect(BlendMode.Addition).toBe("addition");
+        assertSame(BlendMode.Addition, "addition");
     });
     it("Overlay has value 'overlay'", () => {
-        expect(BlendMode.Overlay).toBe("overlay");
+        assertSame(BlendMode.Overlay, "overlay");
     });
     it("SoftLight has value 'soft_light'", () => {
-        expect(BlendMode.SoftLight).toBe("soft_light");
+        assertSame(BlendMode.SoftLight, "soft_light");
     });
     it("HardLight has value 'hard_light'", () => {
-        expect(BlendMode.HardLight).toBe("hard_light");
+        assertSame(BlendMode.HardLight, "hard_light");
     });
     it("Difference has value 'difference'", () => {
-        expect(BlendMode.Difference).toBe("difference");
+        assertSame(BlendMode.Difference, "difference");
     });
     it("Exclusion has value 'exclusion'", () => {
-        expect(BlendMode.Exclusion).toBe("exclusion");
+        assertSame(BlendMode.Exclusion, "exclusion");
     });
     it("Subtract has value 'subtract'", () => {
-        expect(BlendMode.Subtract).toBe("subtract");
+        assertSame(BlendMode.Subtract, "subtract");
     });
     it("Divide has value 'divide'", () => {
-        expect(BlendMode.Divide).toBe("divide");
+        assertSame(BlendMode.Divide, "divide");
     });
     it("Hue has value 'hsl_hue'", () => {
-        expect(BlendMode.Hue).toBe("hsl_hue");
+        assertSame(BlendMode.Hue, "hsl_hue");
     });
     it("Saturation has value 'hsl_saturation'", () => {
-        expect(BlendMode.Saturation).toBe("hsl_saturation");
+        assertSame(BlendMode.Saturation, "hsl_saturation");
     });
     it("Color has value 'hsl_color'", () => {
-        expect(BlendMode.Color).toBe("hsl_color");
+        assertSame(BlendMode.Color, "hsl_color");
     });
     it("Luminosity has value 'hsl_luminosity'", () => {
-        expect(BlendMode.Luminosity).toBe("hsl_luminosity");
+        assertSame(BlendMode.Luminosity, "hsl_luminosity");
     });
 });

@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type BlendMode } from "./BlendMode.js";
-import { type Color } from "./Color.js";
+import type { BlendMode } from "./BlendMode.ts";
+import type { Color } from "./Color.ts";
 
 /**
  * A sprite layer or layer group. Layer information only makes sense when sprite sheet image is splitted by layer

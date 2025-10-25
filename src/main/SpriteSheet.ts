@@ -3,9 +3,9 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type ArrayFrame } from "./ArrayFrame.js";
-import { type Frame } from "./Frame.js";
-import { type Meta } from "./Meta.js";
+import type { ArrayFrame } from "./ArrayFrame.ts";
+import type { Frame } from "./Frame.ts";
+import type { Meta } from "./Meta.ts";
 
 /** Aseprite sprite sheet. This is the root type in an Aseprite JSON file. */
 export interface SpriteSheet {

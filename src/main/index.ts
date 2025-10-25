@@ -3,19 +3,20 @@
  * See LICENSE.md for licensing information.
  */
 
-export type { ArrayFrame } from "./ArrayFrame.js";
-export { BlendMode } from "./BlendMode.js";
-export type { Color } from "./Color.js";
-export { Direction } from "./Direction.js";
-export { Format } from "./Format.js";
-export type { Frame } from "./Frame.js";
-export type { FrameTag } from "./FrameTag.js";
-export type * from "./json.js";
-export type { Layer } from "./Layer.js";
-export type { Meta } from "./Meta.js";
-export type { Point } from "./Point.js";
-export type { Rectangle } from "./Rectangle.js";
-export type { Size } from "./Size.js";
-export type { Slice } from "./Slice.js";
-export type { SliceKey } from "./SliceKey.js";
-export type { SpriteSheet }  from "./SpriteSheet.js";
+export type { ArrayFrame } from "./ArrayFrame.ts";
+export type { Color } from "./Color.ts";
+export type { Frame } from "./Frame.ts";
+export type { FrameTag } from "./FrameTag.ts";
+export type * from "./json.ts";
+export type { Layer } from "./Layer.ts";
+export type { Meta } from "./Meta.ts";
+export type { Point } from "./Point.ts";
+export type { Rectangle } from "./Rectangle.ts";
+export type { Size } from "./Size.ts";
+export type { Slice } from "./Slice.ts";
+export type { SliceKey } from "./SliceKey.ts";
+export type { SpriteSheet }  from "./SpriteSheet.ts";
+
+export { BlendMode } from "./BlendMode.ts";
+export { Direction } from "./Direction.ts";
+export { Format } from "./Format.ts";
