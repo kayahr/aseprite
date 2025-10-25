@@ -4,6 +4,7 @@
  */
 
 export type { ArrayFrame } from "./ArrayFrame.ts";
+export type { Cel } from "./Cel.ts";
 export type { Color } from "./Color.ts";
 export type { Frame } from "./Frame.ts";
 export type { FrameTag } from "./FrameTag.ts";
