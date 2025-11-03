@@ -52,7 +52,7 @@
         "@kayahr/assert": "1.2.0",
         "@kayahr/cspell": "9.2.2-bundle.1",
         "@kayahr/npm-utils": "1.1.0",
-        "@kayahr/ntest": "1.1.0",
+        "@kayahr/ntest": "1.2.2",
         "@kayahr/oxlint-config": "1.7.0",
         "@kayahr/ts-json-schema-generator": "2.4.0-bundle.1",
         "@kayahr/typedoc": "0.28.14-bundle.2",
