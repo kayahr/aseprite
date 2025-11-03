@@ -51,7 +51,7 @@
     "devDependencies": {
         "@kayahr/assert": "1.2.0",
         "@kayahr/cspell": "9.2.2-bundle.1",
-        "@kayahr/npm-utils": "1.1.0",
+        "@kayahr/npm-utils": "1.1.1",
         "@kayahr/ntest": "1.1.0",
         "@kayahr/oxlint-config": "1.7.0",
         "@kayahr/ts-json-schema-generator": "2.4.0-bundle.1",
