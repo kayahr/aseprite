@@ -5,3 +5,4 @@ node_modules/
 sandbox/
 site/
 *.tgz
+/.codex
